@@ -23,13 +23,13 @@
       shoji = pkgs.buildGoModule rec {
   	pname = "shoji";
 	name = "shoji";
-	version = "0.0.1";
+	version = "0.0.2";
 
         src = pkgs.fetchFromGitHub {
           owner = "AdoPi";
           repo = "${pname}";
           rev = "v${version}";
-          hash = "sha256-jGozqQYY/FH+tMPJ+3xxjuZ8DPjb01F0cHKLnrsebls=";
+          hash = "sha256-jGozqQYY/FH+tMPJ+3xxjuZ8DPjb01F0cHKLnrsebls0";
         };
 	vendorHash = "sha256-uvpMGk0MbjR7kGRL2K1uP1vH30TAuz/ULEjObW6udyA=";
       };
@@ -108,7 +108,7 @@
 		${shoji}/bin/shoji convert ssh -k $keys_directory -o $output $ssh_config  
 	else
 		age_bin=${pkgs.age}/bin/age
-		${shoji}/bin/shoji convert ssh -u -k $keys_directory $ssh_config | ${pkgs.sops}/bin/sops --encrypt --encrypted-regex $encrypted_regex --age $age_public_keys --input-type yaml --output $output /dev/stdin
+		${shoji}/bin/shoji convert ssh -u -k $keys_directory $ssh_config | ${pkgs.sops}/bin/sops --encrypt --encrypted-regex $encrypted_regex --age $age_public_keys --input-type yaml --output-type yaml --output $output /dev/stdin
 	fi
 
       '';
