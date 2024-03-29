@@ -118,6 +118,11 @@
     };
   in {
 
+    nixosModules = {
+      shoji = import ./modules/shoji;
+      default = self.nixosModules.shoji;
+    };
+
     packages = genAttrs systems packagesForSystem;
     defaultPackage = forAllSystems (system: self.packages.${system}.shojiInitAgeScript);
 
