@@ -2,7 +2,7 @@
 
 ### SSH Key Management Module for Nix
 
-This module is a way to encrypt and save SSH keys in your Nix configuration repository.
+This module provides a way to encrypt and save SSH keys in your Nix configuration repository.
 
 <img src="https://github.com/AdoPi/shoji-nix/assets/5956940/84de5a8b-04fe-42f3-ba52-b5f74b2c1ce4" width="250" height="250">
 
