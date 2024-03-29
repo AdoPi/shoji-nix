@@ -2,7 +2,7 @@
 
 ### SSH Key Management Module for Nix
 
-This module is a way to save SSH keys securely in your Nix configuration.
+This module is a way to encrypt and save SSH keys in your Nix configuration repository.
 
 Shoji-Nix is a Nix module designed to manage and securely store your SSH keys. With Shoji-Nix, you can transform your SSH configuration and .ssh folder into a YAML file, which you can then encrypt and save in your Nix configuration.
 
