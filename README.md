@@ -8,6 +8,7 @@ Shoji-Nix is a Nix module designed to manage and securely store your SSH keys. W
 
 Shoji-Nix uses the robust encryption tools SOPS and AGE, allowing you to encrypt not just your private SSH key, but also the username, IP address, and hostname of your SSH configuration. This feature provides an added layer of security and helps maintain your anonymity.
 
+Warning: Very experimental!!! Use at your own risk!
 
 # Init
 Create a yaml file with shoji, encrypts it using age and sops.
