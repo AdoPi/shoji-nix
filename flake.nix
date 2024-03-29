@@ -40,7 +40,7 @@
         ssh_config="~/.ssh/config"
         output="ssh.yaml"
 	age_public_keys=""
-	encrypted_regex="'(hostname|identity|name)'"
+	encrypted_regex='(hostname|identity|name)'
 
         # Parsing options
         while (( "$#" )); do
