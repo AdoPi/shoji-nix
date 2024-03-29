@@ -5,7 +5,7 @@
     shoji-nix.url = "github:AdoPi/shoji-nix";
   };
 
-  outputs = inputs @ { self, nixpkgs, home-manager, shoji-nix, ... }:
+  outputs = inputs @ { self, nixpkgs, shoji-nix, ... }:
     let system = "x86_64-linux";
     pkgs = import nixpkgs {
       inherit system;
