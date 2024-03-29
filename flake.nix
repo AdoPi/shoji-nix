@@ -18,19 +18,7 @@
     packagesForSystem = system: let
       pkgs = nixpkgs.legacyPackages.${system};
 
-      shoji = pkgs.buildGoModule rec {
-  	pname = "shoji";
-	name = "shoji";
-	version = "0.0.2";
-
-        src = pkgs.fetchFromGitHub {
-          owner = "AdoPi";
-          repo = "${pname}";
-          rev = "v${version}";
-          hash = "sha256-jGozqQYY/FH+tMPJ+3xxjuZ8DPjb01F0cHKLnrsebls0";
-        };
-	vendorHash = "sha256-uvpMGk0MbjR7kGRL2K1uP1vH30TAuz/ULEjObW6udyA=";
-      };
+      shoji = pkgs.callPackage ./pkgs/shoji.nix { };
 
       shojiInitAgeScript = pkgs.writeShellScriptBin "shoji-init" ''
         #!/usr/bin/env bash
