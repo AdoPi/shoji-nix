@@ -16,20 +16,20 @@ Warning: This is a POC, it is very experimental!!! Use at your own risk! Please 
 Create a yaml file with shoji, encrypts it using age and sops.
 
 ```
-nix run .#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -a $(cat ~/.sops/age/keys.txt | grep public | grep -oP "public key: \K(.*)")
+nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -a $(cat ~/.sops/age/keys.txt | grep public | grep -oP "public key: \K(.*)")
 ```
 
 You can also define your own encryption-regex
 
 ```
-nix run .#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -a $(cat ~/.sops/age/keys.txt | grep public | grep -oP "public key: \K(.*)") -r '(name|identity)'
+nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -a $(cat ~/.sops/age/keys.txt | grep public | grep -oP "public key: \K(.*)") -r '(name|identity)'
 ```
 
 If you don't want to encrypt your file, you can run shoji-init without an age public key file.
 Then you can encrypt it with sops (and age) using your own `.sops.yaml` file.
 
 ```
-nix run .#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml
+nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml
 ```
 
 ## Usage in your configuration.nix
