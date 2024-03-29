@@ -1,11 +1,9 @@
 {
   description = "Manage SSH keys with Nix";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-  inputs.nixpkgs-stable.url = "github:NixOS/nixpkgs/release-23.11";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-stable
   }: let
     systems = [
       "x86_64-linux"
