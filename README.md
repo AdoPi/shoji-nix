@@ -20,7 +20,7 @@ nix run .#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -a $(cat ~/.sops/
 You can also define your own encryption-regex
 
 ```
-nix run .#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh3.yaml -a $(cat ~/.sops/age/keys.txt | grep public | grep -oP "public key: \K(.*)") -r '(name|identity)'
+nix run .#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -a $(cat ~/.sops/age/keys.txt | grep public | grep -oP "public key: \K(.*)") -r '(name|identity)'
 ```
 
 If you don't want to encrypt your file, you can run shoji-init without an age public key file.
