@@ -1,6 +1,6 @@
 # Shoji-nix 
 
-### SSH Key Management Module for Nix
+### SSH Keys Management Module for Nix
 
 This module provides a way to encrypt and save SSH keys in your Nix configuration repository.
 
