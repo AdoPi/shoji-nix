@@ -12,7 +12,36 @@ Shoji-Nix uses the robust encryption tools SOPS and AGE, allowing you to encrypt
 
 Warning: This is a POC, it is very experimental!!! Use at your own risk! Please backup your files before using it.
 
-# Init
+# Quick start
+
+You only need two commands!
+
+The first one is for bundling and encrypting your .ssh folder into a yaml file.
+
+```
+    $ nix run github:AdoPi/shoji-nix#shoji-init -- -k ssh -c ~/.ssh/config -o ssh.yaml -g age.txt
+```
+
+The result is an encrypted `ssh.yaml` which contains your .ssh keys and ssh config! 
+It has been encrypted with the public key contained in `age.txt`, thanks to the -g option which generates an age key file for you.
+
+You can now commit your encrypted ssh.yaml publicly!
+
+To decrypt it, just use this second command:
+
+```
+  $ nix run github:AdoPi/shoji-nix#shoji-run -- -k ~/.ssh -o ~/.ssh/config -p age.txt -y ssh.yaml
+```
+
+Warnings: 
+* Don't lose your age key! It is mandatory for decrypting your yaml bundled by Shoji.
+* Shoji is very experimental, please backup your files before using it!
+
+# Guide
+
+This section contains more information and examples about shoji-nix
+
+## Init
 Create a yaml file with shoji, encrypts it using age and sops.
 
 ```
@@ -26,13 +55,22 @@ nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.y
 ```
 
 If you don't want to encrypt your file, you can run shoji-init without an age public key file.
-Then you can encrypt it with sops (and age) using your own `.sops.yaml` file.
+Then you can encrypt it yourself with sops (and age) using your own `.sops.yaml` file.
 
 ```
 nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml
+# Resulting ssh.yaml is not encrypted
 ```
 
-## Usage in your configuration.nix
+## Decrypting and installing your ssh folder
+
+TODO
+
+## NixOs users
+
+### Using shoji in your configuration.nix
+
+Once you have run #shoji-init, you can use shoji-nix as a module to laod and decrypt your bundled yaml file.
 
 Include shoji-nix as a module in your nix code.
 
@@ -62,5 +100,6 @@ Then you can define your own shoji configuration.
   shoji.yaml-config =  ./ssh.yaml;
 }
 ```
-## Examples
+### Examples
 For more informations, you can find a simple example in the `examples` folder.
+
