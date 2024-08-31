@@ -2,13 +2,13 @@
 
 ### SSH Keys Management Module for Nix
 
-This module provides a way to encrypt and save SSH keys in your Nix configuration repository.
+This flake provides a way to encrypt and bundle your SSH keys so you can save them along your GitOps files in a public repository!
 
 <img src="https://github.com/AdoPi/shoji-nix/assets/5956940/84de5a8b-04fe-42f3-ba52-b5f74b2c1ce4" width="250" height="250">
 
-Shoji-Nix is a Nix module designed to manage and securely store your SSH keys. With Shoji-Nix, you can transform your SSH configuration and .ssh folder into a YAML file, which you can then encrypt and save in your Nix configuration.
+Shoji-Nix is a Nix flake designed to manage and securely store your SSH keys. With Shoji-Nix, you can bundle your SSH configuration and .ssh folder into a YAML file, which you can then be encrypted and saved in your repository.
 
-Shoji-Nix uses the robust encryption tools SOPS and AGE, allowing you to encrypt not just your private SSH key, but also the username, IP address, and hostname of your SSH configuration. This feature provides an added layer of security and helps maintain your anonymity.
+Shoji-Nix uses the robust encryption tools SOPS and AGE, allowing you to encrypt not just your private SSH key, but also the username, IP address, hostname of your SSH configuration. This feature provides an added layer of security and helps maintain your anonymity.
 
 Warning: This is a POC, it is very experimental!!! Use at your own risk! Please backup your files before using it.
 
@@ -75,6 +75,7 @@ TODO DOC
 ### Using shoji in your configuration.nix
 
 Once you have run #shoji-init, you can use shoji-nix as a module to laod and decrypt your bundled yaml file.
+This module provides a way to decrypt and unbundle your SSH keys directly from your Nix configuration files.
 
 Include shoji-nix as a module in your nix code.
 
