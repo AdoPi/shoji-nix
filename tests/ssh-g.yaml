@@ -1,0 +1,27 @@
+hosts:
+    - name: ENC[AES256_GCM,data:mnDroZhaxg==,iv:Qqw4Hnu9hzIS6dY2tPQN/w8Hz5o68lUBLR6N2KOIR0c=,tag:0eiC2Asi0tfko11zSFO98w==,type:str]
+      user: example-user
+      port: "2222"
+      identity: ENC[AES256_GCM,data:Z4L6Ix/HIzXhGpes5hIlP/eNG+BLGcgc7KtNmUSdcOVqXmTelVopZGYouG1/HhhigRd2v/XwbzoIYJ6mWwj2Cv9P/Js29/9oxt8dVCY3uLiaq//7961A9z5xfdZLMnC9eEZERIQIQuCmopWoOzfHDSZNnck2kxfsZdz2X3rol2wvAqsiIeRCTkIDnEM4lpUmSJABJY7pv0dcSGQZJYX+78GfUrLZv8VhfTNfGIHufOD5LT5TxHfNmsQV4lnSIjOVmev8+ywAynvt95ZDZlnF7IvGCmqpyY5uv/a4HVta81mJJrhDG7ViyrS3WGJOtmdIDk4NC23MzBMJYcT4YCOxOGJTRvUMcygLhx/klFfDmpZBRyDfqKk8IBl/h+X4P+qe9lAB2AEYTpCodfcASUz9pe2MBc7ZxZFo/U4Bo+fCM8tmqobwUcSmhJ827e+thvmlzafUKaWS/+LfiDiSyDBGcD4gmgf5MKN6srvVnuyoitYuNWuIMmiEZ8x0OgbqP11nidVxhf6o8sosvrEoMU/sFj9Cl+WgMwWRRi17,iv:Ilf+nAagf6HF61Yxc6GX1yylCwvZBpxoJjlfzIux3Cw=,tag:3GGnAysfpdQRPEnljh+TTg==,type:str]
+      hostname: ENC[AES256_GCM,data:0qwNIZSlyXzm3Io=,iv:6l3btHDSDOHgAcnfUkFCcYrIoIFw1/aIf8y6ibNh6Rs=,tag:yYVKhbdk1/rYXMDqC0+DdQ==,type:str]
+      data: ""
+sops:
+    kms: []
+    gcp_kms: []
+    azure_kv: []
+    hc_vault: []
+    age:
+        - recipient: age1un69p9xlf32lnzw0w0lz6as69rakfcfhfsl7zrcqnv2a77arlansmzm85s
+          enc: |
+            -----BEGIN AGE ENCRYPTED FILE-----
+            YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSBDMlhJS2k3MEZjc0hzMUJS
+            Yk1vS0g5NDJqblZ4dGJ0RGVDeGdFaVBlNmdvCmVLUkYxV01vUHYrZ2crTDBHWFc1
+            SC9vTmJYb20zdGhITnQ0VDRRSGRLbVkKLS0tIEZrb3lLOTJKUWtXalhJcVpnQVR5
+            UXdId0VURGlEWmNCVGNtNjRyeE5URHcKcydJBYUF49vB+YgzLaLrGequmGkgyzOd
+            10BW5XtkgBfgXaQ3KbWR8ey5MVA28h2Qism3NnedyIK3UzE8tcKpzA==
+            -----END AGE ENCRYPTED FILE-----
+    lastmodified: "2024-08-31T22:42:52Z"
+    mac: ENC[AES256_GCM,data:7g0qT/YtsaHKNoP9re/CDOjT6ToOvwQp+3foZr5iHrmN0+rhDC8N7Ngb5gGNpBQjT4Lvly62PcrqR7aJIGIALS5zpe/HRD++MnWZpzDAuXOdTCD078cwtScGg+lQkfOiYnnjiG7D+Eye2aZhU2xxzTNp33cSyEiDhGxBNcP13/k=,iv:VuOga62/uVizex48gzaNACuSrw50hIEMhvUJpir2+D0=,tag:saBykxGKVwLuohnl3x4Hhg==,type:str]
+    pgp: []
+    encrypted_regex: (hostname|identity|name)
+    version: 3.8.1
