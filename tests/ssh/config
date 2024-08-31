@@ -1,0 +1,5 @@
+Host example
+Hostname example.com
+User example-user
+Port 2222
+IdentityFile ./example.key
