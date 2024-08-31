@@ -3,3 +3,5 @@ home-ssh-test/*
 
 home-ssh-test-g
 home-ssh-test-g/*
+
+*.yaml
