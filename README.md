@@ -7,11 +7,11 @@ The result is one readable yaml file with encrypted fields of your choice.
 
 <img src="https://github.com/AdoPi/shoji-nix/assets/5956940/84de5a8b-04fe-42f3-ba52-b5f74b2c1ce4" width="250" height="250">
 
-Shoji-Nix is a Nix flake designed to manage and securely store your SSH keys. With Shoji-Nix, you can bundle your SSH configuration and .ssh folder into a YAML file, which you can then be encrypted and saved in your repository.
+Shoji-Nix is a Nix flake designed to manage and securely store your SSH keys. With Shoji-Nix, you can bundle your SSH configuration and .ssh folder into a YAML file which can then be encrypted and saved in your repository.
 
 Shoji-Nix uses the robust encryption tools SOPS and AGE, allowing you to encrypt not just your private SSH key, but also the username, IP address, hostname of your SSH configuration. This feature provides an added layer of security and helps maintain your anonymity.
 
-Warning: This is a POC, it is very experimental!!! Use at your own risk! Please backup your files before using it.
+⚠️ Shoji is very experimental, use it at your own risk! Please backup your files before using it!
 
 # Quick start
 
@@ -34,9 +34,8 @@ To decrypt it, just use this second command:
   $ nix run github:AdoPi/shoji-nix#shoji-run -- -k ~/.ssh -o ~/.ssh/config -p age.txt -y ssh.yaml
 ```
 
-Warnings: 
-* Don't lose your age key! It is mandatory for decrypting your yaml bundled by Shoji.
-* Shoji is very experimental, please backup your files before using it!
+⚠️ Don't lose your age key! It is mandatory for decrypting your yaml bundled by Shoji.
+⚠️ Please backup your files before using it!
 
 # Guide
 
