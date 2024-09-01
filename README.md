@@ -139,13 +139,15 @@ nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.y
 ```
 
 ## Decrypting and installing your ssh folder
+
+:construction: This section of the documentation is in WIP.
+
 If you are not a NixOs user if you don't want to use the Shoji-nix module, you can decrypt your .ssh keys with the #shoji-run command.
 
 ```
   $ nix run github:AdoPi/shoji-nix#shoji-run -- -k ~/.ssh -o ~/.ssh/config -p age.txt -y ssh.yaml
 ```
 
-TODO DOC
 
 
 ## NixOs users
