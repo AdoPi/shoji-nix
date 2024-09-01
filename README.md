@@ -35,6 +35,7 @@ To decrypt it, just use this second command:
 ```
 
 ⚠️ Don't lose your age key! It is mandatory for decrypting your yaml bundled by Shoji.
+
 ⚠️ Please backup your files before using it!
 
 # Guide
