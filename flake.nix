@@ -1,6 +1,6 @@
 {
-  description = "Manage SSH keys with Nix";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-23.11";
+  description = "Bundle and encrypt your SSH keys with Nix";
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/release-24.05";
   outputs = {
     self,
     nixpkgs,
@@ -106,7 +106,6 @@
         '';
 
       # Generate yaml (optionally encrypted) from a ssh config file
-      # TODO: generate age key file for the user
       shojiInitAgeScript = pkgs.writeShellScriptBin "shoji-init" ''
         #!/usr/bin/env bash
         keys_directory="~/.ssh"
