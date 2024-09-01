@@ -1,8 +1,9 @@
 # Shoji-nix 
 
-### SSH Keys Management Module for Nix
+### Bundle and encrypt your SSH Keys
 
-This flake provides a way to encrypt and bundle your SSH keys so you can save them along your GitOps files in a public repository!
+This flake provides a way to encrypt and bundle your SSH keys and SSH config so you can save them along your GitOps files in a public repository!
+The result is one readable yaml file with encrypted fields of your choices.
 
 <img src="https://github.com/AdoPi/shoji-nix/assets/5956940/84de5a8b-04fe-42f3-ba52-b5f74b2c1ce4" width="250" height="250">
 
