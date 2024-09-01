@@ -21,7 +21,7 @@ You only need two commands!
 The first one is for bundling and encrypting your .ssh folder into a yaml file.
 
 ```
-    $ nix run github:AdoPi/shoji-nix#shoji-init -- -k ssh -c ~/.ssh/config -o ssh.yaml -g age.txt
+    $ nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -g age.txt
 ```
 
 The result is an encrypted `ssh.yaml` which contains your .ssh keys and ssh config! 
