@@ -25,7 +25,7 @@ The first one is for bundling and encrypting your .ssh folder into a yaml file.
 ```
 
 The result is an encrypted `ssh.yaml` which contains your .ssh keys and ssh config! 
-It has been encrypted with the public key contained in `age.txt`, thanks to the -g option which generates an age key file for you.
+It has been encrypted with the public key contained in `age.txt` generated for you thanks to the -g option.
 
 You can now commit your encrypted ssh.yaml publicly!
 
