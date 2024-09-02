@@ -21,7 +21,7 @@ You only need two commands!
 The first one is for bundling and encrypting your .ssh folder into a yaml file.
 
 ```
-    $ nix run github:AdoPi/shoji-nix#shoji-init -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -g age.txt
+    $ nix run 'github:AdoPi/shoji-nix#shoji-init' -- -o ssh.yaml -g age.txt
 ```
 
 The result is an encrypted `ssh.yaml` which contains your .ssh keys and ssh config! 
@@ -32,7 +32,7 @@ You can now commit your encrypted ssh.yaml publicly!
 To decrypt it, just use this second command:
 
 ```
-  $ nix run github:AdoPi/shoji-nix#shoji-run -- -k ~/.ssh -o ~/.ssh/config -p age.txt -y ssh.yaml
+  $ nix run 'github:AdoPi/shoji-nix#shoji-run' -- -o ~/.ssh/config -p age.txt -y ssh.yaml
 ```
 
 ⚠️ Don't lose your age key! It is mandatory for decrypting your yaml bundled by Shoji.
