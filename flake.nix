@@ -210,7 +210,7 @@
 		then
 			# Generating age key
 			${pkgs.age}/bin/age-keygen -o $age_private_key_path &> /dev/null
-			age_public_keys=$(cat $age_private_key_path | grep public | grep -oP "public key: \K(.*)")
+			age_public_keys=$(${pkgs.coreutils}/bin/cat $age_private_key_path | ${pkgs.gnugrep}/bin/grep public | ${pkgs.gnugrep}/bin/grep -oP "public key: \K(.*)")
 		else
 			echo "-a (--age-public-key) and -g (--generate-age-key) are not compatible."
 			exit 1
