@@ -48,13 +48,13 @@ Host example
 	Hostname example.com
 	User example-user
 	Port 2222
-	IdentityFile ~./example.key
+	IdentityFile ~/.ssh/example.key
 
 Host shoji
 	Hostname shoji-example.com
 	User example-shoji
 	Port 2222
-	IdentityFile ~./shoji-example.key
+	IdentityFile ~/.ssh/shoji-example.key
 
 ```
 
@@ -100,12 +100,12 @@ The ~/.ssh/config will be similar to this one:
 $ cat ~/.ssh/config
 Host example
 	User example-user
-	IdentityFile /home/shoji-user/example-user-example-3828fa55.key
+	IdentityFile /home/shoji-user/.ssh/example-user-example-3828fa55.key
 	Hostname example.com
 	Port 2222
 Host shoji
 	User example-shoji
-	IdentityFile /home/shoji-user/example-shoji-shoji-a6f48472.key
+	IdentityFile /home/shoji-user/.ssh/example-shoji-shoji-a6f48472.key
 	Hostname shoji-example.com
 	Port 2211
 ```
