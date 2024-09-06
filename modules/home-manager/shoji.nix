@@ -60,12 +60,11 @@ in
   };
 
   config = mkIf cfg.enable {
-    home.activation.shoji = {
-      text = ''
+    home.activation.shoji =
+      ''
         export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
         ${pkgs.sops}/bin/sops exec-file ${cfg.yaml-config} '${goProgram}/bin/shoji convert yaml -k ${cfg.ssh-folder} -o ${cfg.ssh-config} {}' && chown -R ${cfg.owner}:${cfg.group} ${cfg.ssh-folder} && chown ${cfg.owner}:${cfg.group} ${cfg.ssh-config}
       '';
-    };
   };
 }
 
