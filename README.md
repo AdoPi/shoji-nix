@@ -145,12 +145,15 @@ $ nix run 'github:AdoPi/shoji-nix#shoji-init' -- -k ~/.ssh -c ~/.ssh/config -o s
 
 :construction: This section of the documentation is in WIP.
 
-If you are not a NixOs user if you don't want to use the Shoji-nix module, you can decrypt your .ssh keys with the #shoji-run command.
+For decrypting your Yaml file, you have two options:
+* Using a command line
+* Using a Nixos module or Home manager module
+
+For the command line, you can use the #shoji-run command.
 
 ```
 $ nix run 'github:AdoPi/shoji-nix#shoji-run' -- -k ~/.ssh -o ~/.ssh/config -p age.txt -y ssh.yaml
 ```
-
 
 
 ## NixOs users
