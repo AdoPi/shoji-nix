@@ -3,6 +3,8 @@ with lib;
 
 let
   cfg = config.home.shoji;
+  primaryGroup = builtins.getEnv "GROUP";
+  currentUser = builtins.getEnv "USER";
   goProgram = pkgs.buildGoModule rec {
     pname = "shoji";
     name = "shoji";
@@ -30,20 +32,19 @@ in
 
     owner = mkOption {
       type = types.str;
-#      default = "${config.users.users.${config.home.username}.uid}";
+      default = "${currentUser}";
       description = "Owner, it is recommended to get the group name from `config.users.users.<?name>.name` to avoid misconfiguration ";
     };
 
     group = mkOption {
       type = types.str;
-#      default = "${config.users.users.${config.home.username}.gid}";
+      default = "${primaryGroup}";
       description = "Group owner, it is recommended to get the group name from `config.users.users.<?name>.group` to avoid misconfiguration ";
     };
 
     ssh-config = mkOption {
       type = types.str;
       default = if config.home.homeDirectory != null then "${config.home.homeDirectory}/.ssh/config" else "~/.ssh/config";
-      # default = "/home/${config.home.username}/.ssh/config";
       description = "Where to store ssh config file";
     };
 
