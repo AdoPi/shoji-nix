@@ -10,17 +10,24 @@
   outputs = { self, nixpkgs, home-manager, shoji-nix }:
     let
       system = "x86_64-linux";
+      username = "myuser";
       pkgs = import nixpkgs { inherit system; };
       homeManager = home-manager.lib.homeManagerConfiguration;
     in {
-      myHome = {
-        myuser = homeManager {
-          inherit pkgs;
-          modules = [
-            shoji-nix
-            ./home.nix
-          ];
-        };
-      };
+	example = lib.nixosSystem {
+	  inherit system;
+	  modules = [
+	    home-manager.nixosModules.home-manager
+            {
+	      home-manager.sharedModules = [
+	        shoji-nix.homeManagerModules.shoji
+	      ];
+	      home-manager.useGlobalPkgs = true;
+	      home-manager.useUserPackages = true;
+	      home-manager.users.${username} = import ./home {inherit username;};
+	    }
+
+	  ];
+	};
     };
 }
