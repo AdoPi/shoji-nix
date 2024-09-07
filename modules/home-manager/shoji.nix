@@ -50,7 +50,7 @@ in
 
     yaml-config = mkOption {
       type = types.path;
-      default = ./ssh.yaml;
+      # default = ./ssh.yaml;
       description = "Input Yaml file which will be converted into ssh config file";
     };
 
