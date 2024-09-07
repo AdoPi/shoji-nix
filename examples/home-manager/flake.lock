@@ -1,0 +1,97 @@
+{
+  "nodes": {
+    "home-manager": {
+      "inputs": {
+        "nixpkgs": "nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1725628988,
+        "narHash": "sha256-Y6TBMTGu4bddUwszGjlcOuN0soVc1Gv43hp+1sT/GNI=",
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "rev": "127ccc3eb7e36fa75e8c3fbd8a343154f66cc1c6",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "home-manager",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1725103162,
+        "narHash": "sha256-Ym04C5+qovuQDYL/rKWSR+WESseQBbNAe5DsXNx5trY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "12228ff1752d7b7624a54e9c1af4b222b3c1073b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1725432240,
+        "narHash": "sha256-+yj+xgsfZaErbfYM3T+QvEE2hU7UuE+Jf0fJCJ8uPS0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ad416d066ca1222956472ab7d0555a6946746a80",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_3": {
+      "locked": {
+        "lastModified": 1725175310,
+        "narHash": "sha256-7jp8z4sCAolDFE+caX1h++idYVHBoytx7afNsfgwvJY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "262dd81ca6449ae7b3bb9547abceac625575fa78",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "release-24.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "home-manager": "home-manager",
+        "nixpkgs": "nixpkgs_2",
+        "shoji-nix": "shoji-nix"
+      }
+    },
+    "shoji-nix": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_3"
+      },
+      "locked": {
+        "lastModified": 1725635760,
+        "narHash": "sha256-mD34IarvODbYKbthSSmIWMPWTXsuOGUfoRoUrwbA1O0=",
+        "owner": "AdoPi",
+        "repo": "shoji-nix",
+        "rev": "208687c58956189974c233e9abbec559fe75d64f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "AdoPi",
+        "repo": "shoji-nix",
+        "type": "github"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
