@@ -187,6 +187,11 @@ Then you can define your own shoji configuration.
   shoji.yaml-config =  ./ssh.yaml;
 }
 ```
-### Examples
+
+## Home manager
+
+Work is in progress to add support for Home Manager
+
+## Examples
 For more informations, you can find a simple example in the `examples` folder.
 
