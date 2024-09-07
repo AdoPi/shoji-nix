@@ -25,24 +25,25 @@ in
     ssh-folder = mkOption {
       type = types.str;
       # default = "/home/${config.home.username}/.ssh/";
+      default = "${config.home.homeDirectory}/.ssh/";
       description = "Keys directory";
     };
 
     owner = mkOption {
       type = types.str;
-      # default = "${config.users.users.${config.home.username}.uid}";
+      default = "${config.users.users.${config.home.username}.uid}";
       description = "Owner, it is recommended to get the group name from `config.users.users.<?name>.name` to avoid misconfiguration ";
     };
 
     group = mkOption {
       type = types.str;
-      # default = "${config.users.users.${config.home.username}.gid}";
+      default = "${config.users.users.${config.home.username}.gid}";
       description = "Group owner, it is recommended to get the group name from `config.users.users.<?name>.group` to avoid misconfiguration ";
     };
 
     ssh-config = mkOption {
       type = types.str;
-      # default = "${config.home.homeDirectory}/.ssh/config";
+      default = "${config.home.homeDirectory}/.ssh/config";
       # default = "/home/${config.home.username}/.ssh/config";
       description = "Where to store ssh config file";
     };
@@ -55,14 +56,14 @@ in
 
     age-keyfile = mkOption {
       type = types.string;
-#      default = "${config.home.homeDirectory}/.sops/age.key";
+      default = "${config.home.homeDirectory}/.sops/age.key";
 #       default = "/home/${config.home.username}/.sops/age.txt";
       description = "File which contains Age private keys";
     };
   };
 
   config = mkIf cfg.enable {
-    home.activation.shoji =
+    cfg.home.activation.shoji =
       ''
         export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
         ${pkgs.sops}/bin/sops exec-file ${cfg.yaml-config} '${goProgram}/bin/shoji convert yaml -k ${cfg.ssh-folder} -o ${cfg.ssh-config} {}' && chown -R ${cfg.owner}:${cfg.group} ${cfg.ssh-folder} && chown ${cfg.owner}:${cfg.group} ${cfg.ssh-config}
