@@ -203,9 +203,9 @@ You can add shoji to your flake.nix as follow:
 Then, load shoji as a Home manager module.
 
 ```
-	      home-manager.sharedModules = [
-	        shoji-nix.homeManagerModules.shoji
-	      ];
+  home-manager.sharedModules = [
+	shoji-nix.homeManagerModules.shoji
+  ];
 ```
 
 Then, you can configure your module in your home.nix.
