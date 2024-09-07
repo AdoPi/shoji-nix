@@ -24,7 +24,7 @@ in
 
     ssh-folder = mkOption {
       type = types.str;
-      default = "${config.home.homeDirectory}/.ssh/";
+      default = "/home/${config.home.username}/.ssh/";
       description = "Keys directory";
     };
 
@@ -42,7 +42,8 @@ in
 
     ssh-config = mkOption {
       type = types.str;
-      default = "${config.home.homeDirectory}/.ssh/config";
+      # default = "${config.home.homeDirectory}/.ssh/config";
+      default = "/home/${config.home.username}/.ssh/config";
       description = "Where to store ssh config file";
     };
 
@@ -54,7 +55,8 @@ in
 
     age-keyfile = mkOption {
       type = types.string;
-      default = "${config.home.homeDirectory}/.sops/age.key";
+#      default = "${config.home.homeDirectory}/.sops/age.key";
+      default = "/home/${config.home.username}/.sops/age.txt";
       description = "File which contains Age private keys";
     };
   };
