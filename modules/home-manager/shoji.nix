@@ -2,7 +2,7 @@
 with lib;
 
 let
-#  cfg = config.home.shoji;
+  cfg = config.home.shoji;
   goProgram = pkgs.buildGoModule rec {
     pname = "shoji";
     name = "shoji";
