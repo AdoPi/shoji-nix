@@ -2,7 +2,7 @@
 with lib;
 
 let
-  cfg = config.home.shoji;
+#  cfg = config.home.shoji;
   goProgram = pkgs.buildGoModule rec {
     pname = "shoji";
     name = "shoji";
@@ -60,8 +60,8 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
-    cfg.home.activation.shoji =
+  config = mkIf config.home.shoji.enable {
+    home.activation.shoji =
       ''
         export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
         ${pkgs.sops}/bin/sops exec-file ${cfg.yaml-config} '${goProgram}/bin/shoji convert yaml -k ${cfg.ssh-folder} -o ${cfg.ssh-config} {}' && chown -R ${cfg.owner}:${cfg.group} ${cfg.ssh-folder} && chown ${cfg.owner}:${cfg.group} ${cfg.ssh-config}
