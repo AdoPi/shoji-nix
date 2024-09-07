@@ -192,6 +192,6 @@ Then you can define your own shoji configuration.
 
 Work is in progress to add support for Home Manager
 
-### Examples
+## Examples
 For more informations, you can find a simple example in the `examples` folder.
 
