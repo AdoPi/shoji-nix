@@ -3,6 +3,8 @@ with lib;
 
 let
   cfg = config.home.shoji;
+  primaryGroup = builtins.getEnv "GROUP";
+  currentUser = builtins.getEnv "USER";
   goProgram = pkgs.buildGoModule rec {
     pname = "shoji";
     name = "shoji";
@@ -24,47 +26,46 @@ in
 
     ssh-folder = mkOption {
       type = types.str;
-      default = "/home/${config.home.username}/.ssh/";
+      default = if config.home.homeDirectory != null then "${config.home.homeDirectory}/.ssh/" else "~/.ssh/";
       description = "Keys directory";
     };
 
     owner = mkOption {
       type = types.str;
-      default = "${config.users.users.${config.home.username}.uid}";
+      default = "${currentUser}";
       description = "Owner, it is recommended to get the group name from `config.users.users.<?name>.name` to avoid misconfiguration ";
     };
 
     group = mkOption {
       type = types.str;
-      default = "${config.users.users.${config.home.username}.gid}";
+      default = "${primaryGroup}";
       description = "Group owner, it is recommended to get the group name from `config.users.users.<?name>.group` to avoid misconfiguration ";
     };
 
     ssh-config = mkOption {
       type = types.str;
-      # default = "${config.home.homeDirectory}/.ssh/config";
-      default = "/home/${config.home.username}/.ssh/config";
+      default = if config.home.homeDirectory != null then "${config.home.homeDirectory}/.ssh/config" else "~/.ssh/config";
       description = "Where to store ssh config file";
     };
 
     yaml-config = mkOption {
       type = types.path;
-      default = ./ssh.yaml;
       description = "Input Yaml file which will be converted into ssh config file";
     };
 
     age-keyfile = mkOption {
       type = types.string;
-#      default = "${config.home.homeDirectory}/.sops/age.key";
-      default = "/home/${config.home.username}/.sops/age.txt";
+      default = "";
       description = "File which contains Age private keys";
     };
   };
 
-  config = mkIf cfg.enable {
+  config = mkIf config.home.shoji.enable {
     home.activation.shoji =
       ''
-        export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
+        if [ -n "${cfg.age-keyfile}" ]; then
+		export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
+	fi
         ${pkgs.sops}/bin/sops exec-file ${cfg.yaml-config} '${goProgram}/bin/shoji convert yaml -k ${cfg.ssh-folder} -o ${cfg.ssh-config} {}' && chown -R ${cfg.owner}:${cfg.group} ${cfg.ssh-folder} && chown ${cfg.owner}:${cfg.group} ${cfg.ssh-config}
       '';
   };

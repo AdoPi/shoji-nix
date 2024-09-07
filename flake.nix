@@ -237,6 +237,11 @@
       default = self.nixosModules.shoji;
     };
 
+    homeManagerModules = {
+      shoji = import ./modules/home-manager/shoji.nix;
+      default = self.homeManagerModules.shoji;
+    };
+
     packages = genAttrs systems packagesForSystem;
     defaultPackage = forAllSystems (system: self.packages.${system}.shojiInitAgeScript);
 
