@@ -24,7 +24,7 @@ in
 
     ssh-folder = mkOption {
       type = types.str;
-      default = "${config.home.homeDirectory}/.ssh/";
+      default = if config.home.homeDirectory != null then "${config.home.homeDirectory}/.ssh/" else "~/.ssh/";
       description = "Keys directory";
     };
 
@@ -42,20 +42,19 @@ in
 
     ssh-config = mkOption {
       type = types.str;
-      default = "${config.home.homeDirectory}/.ssh/config";
+      default = if config.home.homeDirectory != null then "${config.home.homeDirectory}/.ssh/config" else "~/.ssh/config";
       # default = "/home/${config.home.username}/.ssh/config";
       description = "Where to store ssh config file";
     };
 
     yaml-config = mkOption {
       type = types.path;
-      # default = ./ssh.yaml;
       description = "Input Yaml file which will be converted into ssh config file";
     };
 
     age-keyfile = mkOption {
       type = types.string;
-      # default = "${config.home.homeDirectory}/.sops/age.key";
+      default = "";
       description = "File which contains Age private keys";
     };
   };
@@ -63,7 +62,9 @@ in
   config = mkIf config.home.shoji.enable {
     home.activation.shoji =
       ''
-        export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
+        if [ -n "${cfg.age-keyfile}" ]; then
+		export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
+	fi
         ${pkgs.sops}/bin/sops exec-file ${cfg.yaml-config} '${goProgram}/bin/shoji convert yaml -k ${cfg.ssh-folder} -o ${cfg.ssh-config} {}' && chown -R ${cfg.owner}:${cfg.group} ${cfg.ssh-folder} && chown ${cfg.owner}:${cfg.group} ${cfg.ssh-config}
       '';
   };
