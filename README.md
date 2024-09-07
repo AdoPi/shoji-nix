@@ -121,6 +121,7 @@ This section contains more information and examples about shoji-nix
 
 ## Init
 Create a yaml file with shoji, encrypts it using age and sops.
+This step is required to then decrypt your bundled ssh yaml file with Shoji nix modules.
 
 ```
 $ nix run 'github:AdoPi/shoji-nix#shoji-init' -- -k ~/.ssh -c ~/.ssh/config -o ssh.yaml -a $(cat ~/.sops/age/keys.txt | grep public | grep -oP "public key: \K(.*)")
