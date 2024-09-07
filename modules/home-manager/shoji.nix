@@ -31,13 +31,13 @@ in
 
     owner = mkOption {
       type = types.str;
-      default = "${config.users.users.${config.home.username}.uid}";
+#      default = "${config.users.users.${config.home.username}.uid}";
       description = "Owner, it is recommended to get the group name from `config.users.users.<?name>.name` to avoid misconfiguration ";
     };
 
     group = mkOption {
       type = types.str;
-      default = "${config.users.users.${config.home.username}.gid}";
+#      default = "${config.users.users.${config.home.username}.gid}";
       description = "Group owner, it is recommended to get the group name from `config.users.users.<?name>.group` to avoid misconfiguration ";
     };
 
