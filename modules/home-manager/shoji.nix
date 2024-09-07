@@ -24,26 +24,26 @@ in
 
     ssh-folder = mkOption {
       type = types.str;
-      default = "/home/${config.home.username}/.ssh/";
+      # default = "/home/${config.home.username}/.ssh/";
       description = "Keys directory";
     };
 
     owner = mkOption {
       type = types.str;
-      default = "${config.users.users.${config.home.username}.uid}";
+      # default = "${config.users.users.${config.home.username}.uid}";
       description = "Owner, it is recommended to get the group name from `config.users.users.<?name>.name` to avoid misconfiguration ";
     };
 
     group = mkOption {
       type = types.str;
-      default = "${config.users.users.${config.home.username}.gid}";
+      # default = "${config.users.users.${config.home.username}.gid}";
       description = "Group owner, it is recommended to get the group name from `config.users.users.<?name>.group` to avoid misconfiguration ";
     };
 
     ssh-config = mkOption {
       type = types.str;
       # default = "${config.home.homeDirectory}/.ssh/config";
-      default = "/home/${config.home.username}/.ssh/config";
+      # default = "/home/${config.home.username}/.ssh/config";
       description = "Where to store ssh config file";
     };
 
@@ -56,7 +56,7 @@ in
     age-keyfile = mkOption {
       type = types.string;
 #      default = "${config.home.homeDirectory}/.sops/age.key";
-      default = "/home/${config.home.username}/.sops/age.txt";
+#       default = "/home/${config.home.username}/.sops/age.txt";
       description = "File which contains Age private keys";
     };
   };
