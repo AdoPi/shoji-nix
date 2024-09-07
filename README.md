@@ -190,7 +190,51 @@ Then you can define your own shoji configuration.
 
 ## Home manager
 
-Work is in progress to add support for Home Manager
+Shoji-nix has a module compatible with home-manager.
+
+You can add shoji to your flake.nix as follow:
+
+```
+  inputs = {
+    shoji-nix.url = "github:AdoPi/shoji-nix";
+  };
+```
+
+Then, load shoji as a Home manager module.
+
+```
+	      home-manager.sharedModules = [
+	        shoji-nix.homeManagerModules.shoji
+	      ];
+```
+
+Then, you can configure your module in your home.nix.
+You don't need to define a variables if you want to use its default value.
+
+```
+  # Shoji configuration
+  home.shoji = {
+      enable = true;
+      # Path to ssh file bundled by Shoji, relative to this file
+      yaml-config = ./ssh.yaml;
+  
+      # If not defined: it uses $SOPS_AGE_KEY_FILE by default
+      age-keyfile = "/home/myuser/.config/sops/age/shoji.txt";
+  
+      # Default value: ~/.ssh/
+      ssh-folder = "/home/myuser/.ssh/"; 
+      
+      # Default value: $USER
+      owner = "myuser"; 
+     
+      # Default value: $GROUP
+      group = "users";
+  
+      # Default value: ~/.ssh/config
+      ssh-config = "/home/myuser/.ssh/config";
+  };
+
+```
 
 ## Examples
 For more informations, you can find a simple example in the `examples` folder.
