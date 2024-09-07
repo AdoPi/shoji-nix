@@ -24,7 +24,7 @@ in
 
     ssh-folder = mkOption {
       type = types.str;
-      # default = "${config.home.homeDirectory}/.ssh/";
+      default = "${config.home.homeDirectory}/.ssh/";
       description = "Keys directory";
     };
 
