@@ -2,7 +2,7 @@
 with lib;
 
 let
-  cfg = config.shoji;
+  cfg = config.home.shoji;
   goProgram = pkgs.buildGoModule rec {
     pname = "shoji";
     name = "shoji";
@@ -24,8 +24,7 @@ in
 
     ssh-folder = mkOption {
       type = types.str;
-      # default = "/home/${config.home.username}/.ssh/";
-      default = "${config.home.homeDirectory}/.ssh/";
+      # default = "${config.home.homeDirectory}/.ssh/";
       description = "Keys directory";
     };
 
@@ -56,8 +55,7 @@ in
 
     age-keyfile = mkOption {
       type = types.string;
-      default = "${config.home.homeDirectory}/.sops/age.key";
-#       default = "/home/${config.home.username}/.sops/age.txt";
+      # default = "${config.home.homeDirectory}/.sops/age.key";
       description = "File which contains Age private keys";
     };
   };
