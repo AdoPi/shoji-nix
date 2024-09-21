@@ -61,8 +61,7 @@ in
   };
 
   config = mkIf config.home.shoji.enable {
-    home.activation.shoji =
-      ''
+    home.activation.shoji =  lib.hm.dag.entryAfter ["writeBoundary"] ''
         if [ -n "${cfg.age-keyfile}" ]; then
 		export SOPS_AGE_KEY_FILE=${cfg.age-keyfile}
 	fi

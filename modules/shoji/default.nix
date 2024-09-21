@@ -60,7 +60,7 @@ in
 
 # Note: Could be nice to add GPG support
   config = mkIf cfg.enable {
-    system.activationScripts.shoji = {
+    system.build.shoji = {
       text = ''
 	export SOPS_AGE_KEY_FILE=${cfg.age-keyfile} 
 	${pkgs.sops}/bin/sops exec-file ${cfg.yaml-config} '${goProgram}/bin/shoji convert yaml -k ${cfg.ssh-folder} -o ${cfg.ssh-config} {}' && chown -R ${cfg.owner}:${cfg.group} ${cfg.ssh-folder} && chown ${cfg.owner}:${cfg.group} ${cfg.ssh-config}
