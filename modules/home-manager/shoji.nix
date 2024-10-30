@@ -54,7 +54,7 @@ in
     };
 
     age-keyfile = mkOption {
-      type = types.string;
+      type = types.str;
       default = "";
       description = "File which contains Age private keys";
     };

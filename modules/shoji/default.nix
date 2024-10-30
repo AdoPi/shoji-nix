@@ -52,7 +52,7 @@ in
       description = "Input Yaml file which will be converted into ssh config file";
     };
     age-keyfile = mkOption {
-      type = types.string;
+      type = types.str;
       default = "/root/.sops/age.key";
       description = "File which contains Age private keys";
     };
