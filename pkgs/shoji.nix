@@ -13,7 +13,7 @@ buildGoModule rec {
     owner = "AdoPi";
     repo = pname;
     rev = "v${version}";
-    hash = "sha256-uvpMGk0MbjR7kGRL2K1uP1vH30TAuz/ULEjObW6udyA=";
+    hash = "sha256-vylraBVsuGFEFgd3GfKVWiMh2yQ2SYYURNidAJKSaus=";
   };
 
   vendorHash = "sha256-vylraBVsuGFEFgd3GfKVWiMh2yQ2SYYURNidAJKSaus=";
