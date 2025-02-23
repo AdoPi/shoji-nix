@@ -8,13 +8,13 @@ let
   goProgram = pkgs.buildGoModule rec {
     pname = "shoji";
     name = "shoji";
-    version = "0.0.1";
+    version = "0.0.6";
 
     src = pkgs.fetchFromGitHub {
       owner = "AdoPi";
       repo = "${pname}";
       rev = "v${version}";
-      hash = "sha256-jGozqQYY/FH+tMPJ+3xxjuZ8DPjb01F0cHKLnrsebls=";
+      hash = "sha256-gh3612yuOBySgA55ID2clQ5KWmtMbTusx9UTOuhgAmc=";
     };
     vendorHash = "sha256-uvpMGk0MbjR7kGRL2K1uP1vH30TAuz/ULEjObW6udyA=";
   };
