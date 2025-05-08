@@ -18,7 +18,7 @@ Shoji-Nix uses the robust encryption tools SOPS and AGE, allowing you to encrypt
 
 # Quick start
 
-You only need two commands!
+Keep your SSH config and keys publicly available... with only two commands!
 
 The first one is for bundling and encrypting your .ssh folder into a yaml file.
 
