@@ -8,8 +8,6 @@ This flake provides a way to encrypt and bundle your SSH keys and SSH config in 
 
 The result is one readable yaml file with encrypted fields of your choice. You can save it along your GitOps files in a public repository.
 
-<img src="https://github.com/AdoPi/shoji-nix/assets/5956940/84de5a8b-04fe-42f3-ba52-b5f74b2c1ce4" width="250" height="250">
-
 Shoji-Nix is a Nix flake designed to manage and securely store your SSH keys. With Shoji-Nix, you can bundle your SSH configuration and .ssh folder into a YAML file which can then be encrypted and saved in your repository.
 
 Shoji-Nix uses the robust encryption tools SOPS and AGE, allowing you to encrypt not just your private SSH key, but also the username, IP address, hostname of your SSH configuration. This feature provides an added layer of security and helps maintain your anonymity.
